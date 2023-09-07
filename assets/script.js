@@ -8,11 +8,25 @@ Non eramamo ancora a conoscenda di molti strumenti utili, come ad esempio le fun
 
 /* Define the slides list */
 const slides = [
-    './assets/img/01.webp', //0
-    './assets/img/02.webp', //1
-    './assets/img/03.webp', //etc
-    './assets/img/04.webp',
-    './assets/img/05.webp',
+    {
+        img: './assets/img/01.webp',
+    },
+
+    {
+        img: './assets/img/02.webp',
+    },
+
+    {
+        img: './assets/img/03.webp',
+    },
+
+    {
+        img: './assets/img/04.webp',
+    },
+
+    {
+        img: './assets/img/05.webp',
+    }    
   ]
   
   let activeSlide = 0;
@@ -27,17 +41,17 @@ const slides = [
   
   /* Print all images into the dom */
   // loop over the slides 
-  for (let i = 0; i < slides.length; i++) {
-    const slidePath = slides[i];
-    console.log(slidePath);
+  slides.forEach((element,index) => {
+    const slidePath = element;
+    console.log(slidePath);    
     
     // for each slide we create the markup
-    const slideMarkup = `<img class="${activeSlide === i ? 'active' : '' }" src="${slidePath}" alt="">`
+    const slideMarkup = `<img class="${activeSlide === index ? 'active' : '' }" src="${slidePath.img}" alt="">`
     //console.log(slideMarkup);
   
     sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
   
-  }
+  });
   
 
   
