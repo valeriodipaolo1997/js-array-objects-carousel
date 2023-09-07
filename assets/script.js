@@ -86,15 +86,16 @@ const slides = [
   
   const thumbsElement = document.querySelector('.thumbnails')
   
-  for (let i = 0; i < slides.length; i++) {
-    const thumbPath = slides[i];
-    const thumbMarkup = `<img class="thumb ${activeSlide === i ? 'active' : ''}" src="${thumbPath}" alt="">`
-    //console.log(thumbMarkup);
+  slides.forEach((element,index) => {
+    const thumbPath = element;
+    console.log(thumbPath);    
+
+    // for each slide we create the markup
+    const thumbMarkup = `<img class="thumb ${activeSlide === index ? 'active' : '' }" src="${thumbPath.img}" alt="">`
+    //console.log(slideMarkup);
   
     thumbsElement.insertAdjacentHTML('beforeend', thumbMarkup)
-    
-  }
-  
+});
   
   
   
